@@ -1,0 +1,107 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+
+.container {
+    background-image: url("../assets/img/Background.png");
+    width: 100vw;
+    height: 100vh;
+    background-color: #15181f;
+    background-size: cover;
+    box-sizing: border-box;
+    background-repeat: no-repeat;
+
+    header {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        height: 20%;
+        flex-direction: column;
+
+        .title {
+            background-image: url("../assets/img/titlesvg.svg");
+            background-repeat: no-repeat;
+            background-size: 20rem;
+            background-position: center;
+            height: 4rem;
+            width: 20rem;
+        }
+    
+    }
+}
+
+main {
+    width: 98%;
+    
+}
+
+.memory-game {
+    display: flex;
+    width: 90%;
+    height: 480px;
+    gap: 10px;
+    margin: auto;
+    flex-wrap: wrap;
+    perspective: 1000px;
+    justify-content: center;
+    
+    .memory-card {
+        width: 8rem;
+        height: 8rem;
+        margin: 4px;
+        position: relative;
+        transform-style: preserve-3d;
+        box-shadow: 1px 1px 0 rgb(0 0 0 / 30%);
+        transform: scale(1);
+        transform-style: preserve-3d;
+        transition: transform 0.5s;
+    
+        .front-face {
+            width: 6rem;
+            height: 6rem;
+            padding: 1rem;
+            background-color: #15181f;
+            border-radius: 12px;
+            position: absolute;
+            backface-visibility: hidden;
+            transform: rotateY(180deg);
+        }
+        
+        .back-face {
+            width: 6rem;
+            height: 6rem;
+            padding: 1rem;
+            background-color: rgba(43, 14, 17, 1);
+            border-radius: 12px;
+            position: absolute;
+            backface-visibility: hidden;
+        }
+    
+    }
+    .memory-card:active {
+        transform: scale(0.97);
+        transition: transform 0.2s;
+    }
+    .memory-card.flip {
+        transform: rotateY(180deg);
+    }
+}
+@media (max-width: 580px) {
+    .container {
+        height: 100vh;
+        background-size: cover;
+        overflow-y: none;
+    }
+    .memory-game {
+        padding: 1rem;
+        overflow-y: scroll;
+    }
+}
+@media (min-width: 1400px) and (orientation: landscape) {
+    .memory-game {
+        width: 50%;
+    }
+
+}
